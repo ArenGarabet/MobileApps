@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        margin: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class = "mb-5">
+    <h3 class = "mb-3">Login</h3>
+    <input type = "text" placeholder="Username" id="userInp" class="form-control mb-3">
+    <input type = "text" placeholder="Password" id="passInp" class="form-control mb-3">
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Keep me logged in</label>
+    </div>
+    <button type="text" id="sub_btn" class="btn w-100 btn-outline-primary mb-3">Login</button>
+    <a href="Register.html" class="badge text-bg-info py-1 w-100">Click here to sign up</a>
+</div>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDUp3drr_gqdZ6dDajXyIugxCTOsinriVY",
+    authDomain: "mobileapp-27627.firebaseapp.com",
+    databaseURL: "https://mobileapp-27627-default-rtdb.firebaseio.com",
+    projectId: "mobileapp-27627",
+    storageBucket: "mobileapp-27627.appspot.com",
+    messagingSenderId: "178123082096",
+    appId: "1:178123082096:web:f5e0dd41c521cabe0be7b5",
+    measurementId: "G-D2Y9PV5VRY"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  import {getDatabase, ref, set, child,get} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+  const db = getDataBase();
+
+</script>
+</body>
+</html>
