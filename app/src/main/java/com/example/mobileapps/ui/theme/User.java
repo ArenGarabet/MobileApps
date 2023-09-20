@@ -17,6 +17,9 @@ public class User {
         this.email = email;
         ID++;
     }
+    public void setUserName(String newUserName){
+        userName = newUserName;
+    }
 
     public int getID(){return ID;}
 
