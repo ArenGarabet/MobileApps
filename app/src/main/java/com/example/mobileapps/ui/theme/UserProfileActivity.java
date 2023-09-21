@@ -31,8 +31,6 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private DatabaseReference database;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +57,7 @@ public class UserProfileActivity extends AppCompatActivity {
     private void showUserProfile(FirebaseUser firebaseUser) {
         FirebaseUserMetadata metadata = firebaseUser.getMetadata();
         long registerTimeStamp = metadata.getCreationTimestamp();
-        String datePattern = "E, dd MMM YYY hh:mm a z";
+        String datePattern = "E, dd MMMM yyyy hh:mm a z";
         SimpleDateFormat sdf = new SimpleDateFormat(datePattern);
         sdf.setTimeZone(TimeZone.getDefault());
         String register = sdf.format(new Date(registerTimeStamp));
@@ -96,7 +94,9 @@ public class UserProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent updateProfile = new Intent(UserProfileActivity.this, UpdateProfile.class);
+                updateProfile.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(updateProfile);
+                finish();
             }
         });
     }
@@ -105,7 +105,7 @@ public class UserProfileActivity extends AppCompatActivity {
         textViewWelcome = findViewById(R.id.textView_welcome);
         textViewFirstName = findViewById(R.id.textView_show_name);
         textViewEmail = findViewById(R.id.textView_show_email);
-        textViewRegisterDate = findViewById(R.id.textview_show_register_date);
+        textViewRegisterDate = findViewById(R.id.textview_register);
         progressBar = findViewById(R.id.progressbar);
     }
 }
