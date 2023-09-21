@@ -39,6 +39,7 @@ public class UpdateProfile extends AppCompatActivity {
         setContentView(R.layout.update_profile);
         getSupportActionBar().setTitle("Update Profile");
         database = FirebaseDatabase.getInstance().getReference();
+        User theUser = new User();
         findViews();
 
 
@@ -80,6 +81,8 @@ public class UpdateProfile extends AppCompatActivity {
                     }
                 });
 
+                database.child("users").child(theUser.getID()+"").child("userName").setValue(textFname);
+
                 user.updateEmail(textEmail)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -90,7 +93,7 @@ public class UpdateProfile extends AppCompatActivity {
                                 }
                             }
                         });
-
+                database.child("users").child(theUser.getID()+"").child("email").setValue(textEmail);
 
                 Intent userProfileActivity = new Intent(UpdateProfile.this, UserProfileActivity.class);
                 startActivity(userProfileActivity);
